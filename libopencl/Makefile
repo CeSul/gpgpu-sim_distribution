@@ -83,7 +83,7 @@ endif
 PROG     =opencl
 
 CXX_SRCS =  opencl_runtime_api.cc
-CCFLAGS += -DCUDART_VERSION=$(CUDART_VERSION)
+CCFLAGS += -DCUDART_VERSION=$(CUDART_VERSION) -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
 
 .PHONY: clean
 

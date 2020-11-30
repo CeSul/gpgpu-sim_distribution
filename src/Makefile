@@ -51,7 +51,7 @@ else
 	CXXFLAGS += 
 endif
 
-CXXFLAGS += -I$(CUDA_INSTALL_PATH)/include
+CXXFLAGS += -I$(CUDA_INSTALL_PATH)/include -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
 
 OPTFLAGS += -g3 -fPIC
 

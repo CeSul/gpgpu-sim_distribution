@@ -149,7 +149,7 @@ $(SIM_LIB_DIR)/libcudart.so: makedirs $(LIBS) cudalib
 			$(SIM_OBJ_FILES_DIR)/cuda-sim/decuda_pred_table/*.o \
 			$(SIM_OBJ_FILES_DIR)/gpgpu-sim/*.o \
 			$(SIM_OBJ_FILES_DIR)/$(INTERSIM)/*.o \
-			$(SIM_OBJ_FILES_DIR)/*.o -lm -lz -lGL -pthread \
+			$(SIM_OBJ_FILES_DIR)/*.o -lm -L$(ZLIB_ROOT)/lib -lz -L$(MESA_ROOT)/lib -lGL -pthread \
 			$(MCPAT) \
 			-o $(SIM_LIB_DIR)/libcudart.so
 	if [ ! -f $(SIM_LIB_DIR)/libcudart.so.2 ]; then ln -s libcudart.so $(SIM_LIB_DIR)/libcudart.so.2; fi
@@ -187,7 +187,7 @@ $(SIM_LIB_DIR)/libOpenCL.so: makedirs $(LIBS) opencllib
 			$(SIM_OBJ_FILES_DIR)/cuda-sim/decuda_pred_table/*.o \
 			$(SIM_OBJ_FILES_DIR)/gpgpu-sim/*.o \
 			$(SIM_OBJ_FILES_DIR)/$(INTERSIM)/*.o \
-			$(SIM_OBJ_FILES_DIR)/*.o -lm -lz -lGL -pthread \
+			$(SIM_OBJ_FILES_DIR)/*.o -lm -L$(ZLIB_ROOT)/lib -lz -L$(MESA_ROOT)/lib -lGL -pthread \
 			$(MCPAT) \
 			-o $(SIM_LIB_DIR)/libOpenCL.so 
 	if [ ! -f $(SIM_LIB_DIR)/libOpenCL.so.1 ]; then ln -s libOpenCL.so $(SIM_LIB_DIR)/libOpenCL.so.1; fi
