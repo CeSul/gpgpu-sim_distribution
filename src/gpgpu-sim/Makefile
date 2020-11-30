@@ -53,7 +53,8 @@ else
 	CXXFLAGS += 
 endif
 
-CXXFLAGS += -I$(CUDA_INSTALL_PATH)/include
+CXXFLAGS += -I$(CUDA_INSTALL_PATH)/include -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
+
 
 POWER_FLAGS=
 ifneq ($(GPGPUSIM_POWER_MODEL),)

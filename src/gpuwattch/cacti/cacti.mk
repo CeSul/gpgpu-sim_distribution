@@ -11,7 +11,8 @@ endif
 
 
 LIBS = 
-INCS = -lm
+INCS = -lm -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
+
 
 ifeq ($(TAG),dbg)
   DBG = -Wall 
@@ -22,7 +23,8 @@ else
 endif
 
 #CXXFLAGS = -Wall -Wno-unknown-pragmas -Winline $(DBG) $(OPT) 
-CXXFLAGS = -Wno-unknown-pragmas $(DBG) $(OPT) 
+CXXFLAGS = -Wno-unknown-pragmas $(DBG) $(OPT) -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
+
 
 ifeq ($(shell getconf LONG_BIT),64) 
 	CXX = g++ -m64

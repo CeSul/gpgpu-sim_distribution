@@ -10,7 +10,7 @@ ifndef NTHREADS
 endif
 
 
-LIBS = -I/usr/lib/ -I/usr/lib64/
+LIBS = -I/usr/lib/ -I/usr/lib64/ -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
 INCS = -lm
 
 CC=
@@ -26,15 +26,16 @@ endif
 
 ifeq ($(TAG),dbg)
   DBG = -Wall 
-  OPT = -ggdb -fPIC -g -O0 -DNTHREADS=1 -Icacti -lz
+  OPT = -ggdb -fPIC -g -O0 -DNTHREADS=1 -Icacti -L$(ZLIB_ROOT)/lib -lz
 else
   DBG = 
-  OPT = -O3 -fPIC -msse2 -mfpmath=sse -DNTHREADS=$(NTHREADS) -Icacti -lz
+  OPT = -O3 -fPIC -msse2 -mfpmath=sse -DNTHREADS=$(NTHREADS) -Icacti -L$(ZLIB_ROOT)/lib -lz
   #OPT = -O0 -DNTHREADS=$(NTHREADS)
 endif
 
 #CXXFLAGS = -Wall -Wno-unknown-pragmas -Winline $(DBG) $(OPT) 
-CXXFLAGS = -Wno-unknown-pragmas $(DBG) $(OPT) 
+CXXFLAGS = -Wno-unknown-pragmas $(DBG) $(OPT) -I$(ZLIB_ROOT)/include -I$(MESA_ROOT)/include
+
 
 
 
